@@ -1,0 +1,22 @@
+def ordenarNumeros (a, b, c):
+    if a > b:
+        a, b = b, a
+    if a > c:
+        a, c = c, a
+    if b > c:
+        b, c = c, b
+    return a, b, c
+while True:
+    entrada = input("Ingrese tres números separados por espacios: ")
+    partes = entrada.split()
+
+    if len(partes) != 3:
+        print("Por favor, ingrese exactamente tres números.")
+        continue
+    try:
+        n1, n2, n3 = map(int, partes)
+        break
+    except ValueError:
+        print("Por favor, ingrese solo números enteros.")
+    menor, medio, mayor = ordenarNumeros(n1, n2, n3)
+print(f"Los números ordenados de menor a mayor son: {menor}, {medio}, {mayor}")
